@@ -1,0 +1,4 @@
+repository "よけるゲーム/よけるゲーム@15669588882256@cloud"
+  path "/"
+    br "/main"
+    co "/main"
