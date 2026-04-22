@@ -17,8 +17,10 @@ public class coin : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            PlayerController script=collision.GetComponent<PlayerController>();
             Debug.Log("コインをゲット");
             Destroy(gameObject);
+            script.addMoney(1);
         }
     }
 }

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -5,6 +6,8 @@ public class PlayerController : MonoBehaviour
     public int[] upgrades=new int[2];
     public float basespeed=5f;
     public float speedMultiplier=1.5f;
+    public int money=0;
+    public TextMeshProUGUI moneyText;
 
     private Vector2 moveDirection=Vector2.right;
     public GameObject eye;
@@ -12,7 +15,7 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        UpdateMoneyUI();
     }
 
     // Update is called once per frame
@@ -83,5 +86,15 @@ public class PlayerController : MonoBehaviour
             eyes.SetActive(true);
             eyes.transform.localPosition=new Vector3(0,-0.3f,0);
         }
+    }
+    public void addMoney(int amount)
+    {
+        money+=amount;
+        Debug.Log("現在のお金:"+money);
+        UpdateMoneyUI();
+    }
+    void UpdateMoneyUI()
+    {
+        moneyText.text="money:"+money;
     }
 }
