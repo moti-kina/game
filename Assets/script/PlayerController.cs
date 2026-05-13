@@ -97,4 +97,8 @@ public class PlayerController : MonoBehaviour
     {
         moneyText.text="money:"+money;
     }
+    public void OnAffected(EffectData data)
+    {
+        //ぽわわあ    
+    }
 }

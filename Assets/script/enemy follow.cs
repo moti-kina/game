@@ -23,4 +23,19 @@ public class enemyfollow : MonoBehaviour
             transform.Translate(direction*movespeed*Time.deltaTime);
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            EffectData effectScript=GetComponent<EffectData>();
+            if(effectScript!=null)
+            {
+                var player=collision.gameObject.GetComponent<PlayerController>();
+                if(player!=null)
+                {
+                    player.OnAffected(effectScript.myEffect);
+                }
+            }
+        }
+    }
 }
